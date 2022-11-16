@@ -1,0 +1,12 @@
+version: "3"
+
+# This is the dev docker image configuration
+# allowing us to bring up development docker images (hot reloading)
+
+services:
+  student-svc:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/opt/student-svc

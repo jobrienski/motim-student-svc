@@ -1,0 +1,37 @@
+version: "3"
+
+# This is the docker-compose base configuration
+# All our services should be defined here WITHOUT specifying their Dockerfile build path
+
+services:
+  postgres:
+    image: motimatic-postgres:latest
+    hostname: postgres
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: p@ssw0rD
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+
+  student-svc:
+    hostname: student-svc
+    restart: unless-stopped
+    ports:
+      - "8002:8001"
+    environment:
+      ENVIRONMENT: "${ENVIRONMENT:-development}"
+      POSTGRES_HOST: "postgres"
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: studentsdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: p@ssw0rD
+      POSTGRES_SSL: disable
+      POSTGRES_CONN_TIMEOUT: 60
+      POSTGRES_CONN_MAX_IDLE: 4
+      POSTGRES_CONN_MAX_OPEN: 8
+      POSTGRES_CONN_MAX_LIFE: 60
+    depends_on:
+      - postgres

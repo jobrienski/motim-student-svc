@@ -1,0 +1,24 @@
+# IntelliJ
+**/.idea
+*.iws
+out/
+**/.idea_modules
+
+# Mac
+**/.DS_Store
+
+# VS Code
+**/.vscode
+
+# Python
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.tox
+**/.eggs
+**/.pytest_cache
+
+# Docker-compose persisted volumes
+docker-cache
+db-data

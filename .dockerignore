@@ -1,0 +1,10 @@
+**/.venv/
+**/menv/
+Dockerfile
+README.md
+**/__pycache__/
+**/.idea/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.tox

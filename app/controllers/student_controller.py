@@ -30,7 +30,5 @@ def create_student(
     "/{id}",
     response_model=StudentResponse,
 )
-def get_student_by_id(
-    id: str = Path(..., min_length=1), sp: StudentControllerParams = Depends()
-):
+def get_student_by_id(id: str = Path(..., min_length=1), sp: StudentControllerParams = Depends()):
     return sp.student_processor.find_student_by_id(id)

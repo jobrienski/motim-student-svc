@@ -46,7 +46,7 @@ docker-compose up -d student-svc # starts on port 8002, -d is optional to run in
 
 ```bash
 make db # upgrade to the lastest revision
-pipenv run alembic upgrade head # Upgrade to the most recent 
+pipenv run alembic upgrade head # Upgrade to the most recent
 pipenv run alembic upgrade +1 # Upgrade one migration
 pipenv run alembic downgrade -2 # Downgrade two migrations
 pipenv run alembic upgrade ae1027a6acf+2 # Upgrade to ae1027a6acf and two addition migrations forward
@@ -66,7 +66,6 @@ pipenv run alembic upgrade ae1027a6acf+2 # Upgrade to ae1027a6acf and two additi
 - Edit the generated migration file
 - Test migration via `pipenv run alembic upgrade head`
 
-
 ## Starting, Testing, etc
 
 A `Makefile` contains useful commands
@@ -74,7 +73,7 @@ A `Makefile` contains useful commands
 ### Starting service
 
 ```bash
-make start # service starts on port 8001 and auto-reloads
+make start # service starts via the shell on port 8001 and auto-reloads
 ```
 
 ### Run tests

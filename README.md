@@ -77,6 +77,7 @@ A `Makefile` contains useful commands
 ### Starting service
 
 ```bash
+make db # start the postgres test database and run migrations
 make start # service starts via the shell on port 8001 and auto-reloads
 ```
 

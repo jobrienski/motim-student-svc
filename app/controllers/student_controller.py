@@ -3,10 +3,14 @@
 from fastapi import APIRouter, Body, Depends, Path
 
 from ..dto.student import CreateStudent, StudentResponse
+
+# from ..lib.security import BearerAuthenticatedUser, JWTUser
 from ..processors.student_processor import StudentProcessor
 
 
 router = APIRouter()
+
+# auth = BearerAuthenticatedUser()
 
 
 class StudentControllerParams:
@@ -20,8 +24,7 @@ class StudentControllerParams:
     tags=["student"],
 )
 def create_student(
-    create_student_input: CreateStudent = Body(...),
-    sp: StudentControllerParams = Depends(),
+    create_student_input: CreateStudent = Body(...), sp: StudentControllerParams = Depends()  # , _user: JWTUser = Depends(auth)
 ):
     return sp.student_processor.create_student(create_student_input)
 

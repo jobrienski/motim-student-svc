@@ -13,6 +13,8 @@ help:   # prints all make targets
 start: clean # runs the API
 	ENVIRONMENT=development pipenv run uvicorn app.main:app --port 8001 --reload
 
+build:
+
 unit:
 	@scripts/run-python-tester.sh
 
@@ -24,7 +26,7 @@ fix:
 	@scripts/run-standard-formatter.sh
 	@scripts/run-python-formatter.sh
 
-test: build clean # lint audit    # runs all tests
+test: build clean lint #audit    # runs all tests
 	@make db
 	@make unit
 

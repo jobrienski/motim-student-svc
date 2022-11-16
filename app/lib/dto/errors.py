@@ -14,7 +14,7 @@ class ApiErrorTypes:
 
 class ApiError(BaseModel):  # pydantic cannot flatten inherited models
     err_code: int = Field(..., description="HTTP Status code")
-    err_type: str = Field(..., description=f"Type of error. User facing")
+    err_type: str = Field(..., description="Type of error. User facing")
     detail: str = Field(..., description="Detailed error message - user facing")
 
     class Config:

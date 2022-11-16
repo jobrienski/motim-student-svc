@@ -2,7 +2,7 @@
 
 This service stores Students and is an example of an architecture for a python fastapi micro-service.
 
-## Development
+## Setup
 
 ### Python Environment
 
@@ -31,14 +31,18 @@ make db  # db runs on port 5433 -> 5432 on docker
 docker build --tag motimatic-student-base -f base.Dockerfile .
 ```
 
-#### Starting service via docker-compose
+#### Login to Snyk
 
-```bash
-docker-compose down postgres  # if you have started postgres with `make db` there will be issues
-docker-compose build student-svc # if it hasn't been built
-docker-compose up -d student-svc # starts on port 8002, -d is optional to run in demon mode
-                                 # service auto-reloads
-```
+> Only needed if you plan on running Snyk locally, right now CI handles Snyk scans
+
+1. Install [Snyk](https://snyk.io/docs/cli-installation/)
+
+1. Sign up for a Snyk account [here](https://app.snyk.io/signup)
+
+1. Authenticate using your account
+   ```bash
+   snyk auth
+   ```
 
 ### Migrations
 
@@ -74,6 +78,15 @@ A `Makefile` contains useful commands
 
 ```bash
 make start # service starts via the shell on port 8001 and auto-reloads
+```
+
+### Starting service via docker-compose
+
+```bash
+docker-compose down postgres  # if you have started postgres with `make db` there will be issues
+docker-compose build student-svc # if it hasn't been built
+docker-compose up -d student-svc # starts on port 8002, -d is optional to run in demon mode
+                                 # service auto-reloads
 ```
 
 ### Run tests

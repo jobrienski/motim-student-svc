@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 alembic = "*"
 sqlalchemy-utils = "*"
 python-json-logger = "*"
+pyjwt = "*"
 
 [dev-packages]
 black = "*"
